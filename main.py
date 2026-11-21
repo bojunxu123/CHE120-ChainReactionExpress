@@ -1,3 +1,5 @@
+#this launches the game
+
 from chain_reaction_express.game import main
 
 
