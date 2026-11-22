@@ -1,4 +1,4 @@
-#define round targets, modifiers, clear conditions, and bonus Token thresholds
+#define round targets, modifiers, clear conditions, and bonus token thresholds
 #Arvint
 
 #Target amount can be changed; the step can as well
