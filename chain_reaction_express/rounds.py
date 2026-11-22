@@ -98,7 +98,7 @@ def is_cleared(score, target):
         >>> is_cleared(9, 5)
         True
     """
-    # The doc's clear condition: score meets or beats the target
+    # If the score meets or beats the target set for the round
     return score >= target
 
 
