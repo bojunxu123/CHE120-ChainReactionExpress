@@ -1,6 +1,8 @@
 #offer two random cards after a cleared round and award the player's choice
 #Arvint
 
+import random
+
 
 #card_pool is a list of cards that can be awarded/offered to the players once a round is done
 #card_pool = list, insert list once cards are defined, different cards earn different points
@@ -8,35 +10,27 @@
 #] end of card pool
 
 #card_pool must exist before this code runs
+def get_random_cards(count):
+    """
+    (int) --> list
+
+    Return a list of `count` different random cards from the pool.
+
+        >>> len(get_random_cards(2))
+        2
+        >>> cards = get_random_cards(2)
+        >>> cards[0]["name"] != cards[1]["name"]
+        True
+    """
+    # Pick `count` different cards at random from the pool
+    chosen = random.sample(card_pool, count)
+    # Make independent copies so changing one card later won't change the pool
+    return [card.copy() for card in chosen]
 
 
-def given_cards(round_number):
-    
-    """
-         (int) ---> (list)
-         
-         Returns two cards from a list after the given round
-         
-         >>> get_offer(0)[0]["name"]
-        'Exotherm'
-        >>> get_offer(1)[0]["name"]
-        'Catalyst'
-        >>> get_offer(1)[1]["name"]
-        'Polymer Chain'
-        >>> get_offer(3)[0]["name"]
-        'Exotherm'
-    """
-    
-    # Work out the position of the first card, wrapping around the pool with %
-    index_a = (round_number * 2) % len(card_pool)
-    # The second card is the next position, so it is always different from the first
-    index_b = (round_number * 2 + 1) % len(card_pool)
-    # Return both cards together in a list
-    return [card_pool[index_a], card_pool[index_b]]
 
 #round_number must exist, so a for loop must implement it to define this variable
 #lineup is the preexisting cards the user has so they must be defined to run
-
 
 def offer_draft(lineup, round_number):
     """
